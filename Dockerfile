@@ -10,7 +10,8 @@ supervisor\
 && apt-get clean\
 && rm -rf /var/lib/apt/lists/*
 
-#Copie le fichier de config de supervisord
+# Copie le fichier de config de supervisord
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-CMD ["/bin/bash"]
+# Start supervisor
+CMD ["/usr/bin/supervisord"]
