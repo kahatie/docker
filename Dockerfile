@@ -1,4 +1,4 @@
-FROM kahatie/debian
+FROM kahatie/debian:jessie
 MAINTAINER kahatie <kahatie@gmail.com>
 
 # Mise a jour / installation des packet
