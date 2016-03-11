@@ -1,3 +1,3 @@
 <?php
-phpinfo();
+echo "php server install... done."
 ?>
