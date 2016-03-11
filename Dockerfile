@@ -13,5 +13,10 @@ supervisor\
 # Copie le fichier de config de supervisord
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+# Volume mysql
+VOLUME ["/var/lib/mysql"]
+# Volume apache2
+VOLUME ["/var/www"]
+
 # Start supervisor
 CMD ["/usr/bin/supervisord"]
