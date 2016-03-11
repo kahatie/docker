@@ -3,12 +3,12 @@ MAINTAINER kahatie <kahatie@gmail.com>
 
 # Mise a jour / installation des packet
 RUN apt-get update && apt-get install -y\
- apache2/
- libapache2-mod-php5/
- php5/
- mysql-server/
- phpmyadmin/
- && apt-get clean/
+ apache2\
+ libapache2-mod-php5\
+ php5\
+ mysql-server\
+ phpmyadmin\
+ && apt-get clean\
  && rm -rf /var/lib/apt/lists/*
 
 
