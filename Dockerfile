@@ -12,17 +12,19 @@ phpmyadmin/
 && rm -rf /var/lib/apt/lists/*
 
 
-
+# supprimer le fichier index par defaut d'appache
 RUN rm /var/www/index.html
 ADD index.php /var/www/index.php
 
-
 # Config de Apache
-
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache2
 
 EXPOSE 80
 
-CMD ["/bin/bash"]
+# Copie le fichier de config de supervisord mie a jour avec les nouveaux programes
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Start supervisor
+CMD ["/usr/bin/supervisord"]
