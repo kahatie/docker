@@ -21,7 +21,13 @@ ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache2
 
-EXPOSE 80
+# Map port 80 et ssl apache2
+EXPOSE 80 443
+
+# Volume mysql
+VOLUME ["/var/lib/mysql"]
+# Volume apache2
+VOLUME ["/var/www"]
 
 # Copie le fichier de config de supervisord mie a jour avec les nouveaux programes
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
