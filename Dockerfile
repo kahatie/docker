@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y\
  && rm -rf /var/lib/apt/lists/*
 
 # Copie le fichier de config de supervisord mie a jour avec les nouveaux programes
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY supervisord.conf /etc/supervisor/conf.d/debian-lamp.conf
 
 # Map port 80 et ssl apache2
 EXPOSE 22 80 443
