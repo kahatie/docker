@@ -14,4 +14,4 @@ RUN apt-get update && apt-get install -y\
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Start supervisor
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf", "-n"]
