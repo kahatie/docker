@@ -30,6 +30,3 @@ VOLUME ["/var/www"]
 
 # ajout le fichier index.php
 ADD index.php /var/www/index.php
-
-# Start supervisor
-CMD ["/usr/bin/supervisord"]
