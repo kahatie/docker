@@ -29,6 +29,7 @@ COPY default.conf /etc/apache2/sites-available/default.conf
 RUN  a2enmod dav_svn \
  && a2dissite 000-default.conf \
  && a2ensite default.conf \
+ && mkdir /home/svn/\
  && svnadmin create /home/svn/repository/ \
  && svn checkout --username system file:///home/svn/repository/
 
