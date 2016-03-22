@@ -20,12 +20,15 @@ RUN apt-get update && apt-get install -y\
  libapache2-svn\ 
  && apt-get clean\
  && rm -rf /var/lib/apt/lists/* \
- && a2enmod dav_svn 
+ && a2enmod dav_svn \
+ && a2dissite 000-default.conf \
  
 # Copie le fichier de config de supervisord
 COPY supervisord.conf /etc/supervisor/conf.d/debian-lamp.conf
 # Copie les fichiers de config de svn
 COPY dav_svn.conf /etc/apache2/mods-aviable/dav_svn.conf
+# apache 2 config
+COPY default.conf /etc/apache2/sites-aviable/default.conf
 
 # Map port 80 et ssl apache2
 EXPOSE 22 80 443
