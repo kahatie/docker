@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y\
  && apt-get clean\
  && rm -rf /var/lib/apt/lists/* \
  && a2enmod dav_svn \
- && a2dissite 000-default.conf \
+ && a2dissite 000-default.conf
  # && a2ensite default.conf \
 
 # Map port 80 et ssl apache2
