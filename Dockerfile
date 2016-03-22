@@ -28,7 +28,12 @@ COPY default.conf /etc/apache2/sites-available/default.conf
 
 RUN  a2enmod dav_svn \
  && a2dissite 000-default.conf \
- && a2ensite default.conf 
+ && a2ensite default.conf \
+ && svnadmin create /home/svn/repository/ \
+ && svn checkout --username system file:///home/svn/repository/
+
+#repository config
+COPY hooks/ /home/svn/repository/hooks
 
 # Map port 80 et ssl apache2
 EXPOSE 22 80 443
