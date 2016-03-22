@@ -1,0 +1,14 @@
+#!/bin/sh
+export LANG="en_US.UTF-8"
+REPOS="$1"
+REV="$2"
+HOME="/home/www"
+SVN="/usr/bin/svn"
+REVFILE="rev.txt"
+DEPOT="$HOME"
+
+eval "$SVN update $DEPOT"
+echo $REV > $DEPOT/$REVFILE
+
+chown -R www-data:www-data $DEPOT
+chmod -R 770 $DEPOT
