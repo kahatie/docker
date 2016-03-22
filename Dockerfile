@@ -1,8 +1,6 @@
 FROM kahatie/debian:jessie
 MAINTAINER kahatie <kahatie@gmail.com>
 
-# Volume mysql
-# VOLUME ["/var/lib/mysql"]
 # Volume home
 VOLUME ["/home/"]
 
@@ -17,7 +15,10 @@ RUN apt-get update && apt-get install -y\
  subversion\ 
  libapache2-svn\ 
  && apt-get clean\
- && rm -rf /var/lib/apt/lists/*
+ && rm -rf /var/lib/apt/lists/*\
+ && mv /var/lib/mysql /home/mysql\
+ && ln -s /home/mysql /var/lib/mysql\
+ && chown -h mysql:mysql /home/mysql
 
 # Copie le fichier de config de supervisord
 COPY supervisord.conf /etc/supervisor/conf.d/debian-lamp.conf
