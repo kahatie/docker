@@ -6,13 +6,6 @@ MAINTAINER kahatie <kahatie@gmail.com>
 # Volume home
 VOLUME ["/home/"]
 
-# Copie le fichier de config de supervisord
-COPY supervisord.conf /etc/supervisor/conf.d/debian-lamp.conf
-# Copie les fichiers de config de svn
-COPY dav_svn.conf /etc/apache2/mods-available/dav_svn.conf
-# apache 2 config
-COPY default.conf /etc/apache2/sites-available/default.conf
-
 # Mise a jour / installation des packet
 RUN apt-get update && apt-get install -y\
  apache2\
@@ -28,6 +21,13 @@ RUN apt-get update && apt-get install -y\
  && a2enmod dav_svn \
  && a2dissite 000-default.conf \
  && a2ensite default.conf 
+
+# Copie le fichier de config de supervisord
+COPY supervisord.conf /etc/supervisor/conf.d/debian-lamp.conf
+# Copie les fichiers de config de svn
+COPY dav_svn.conf /etc/apache2/mods-available/dav_svn.conf
+# apache 2 config
+COPY default.conf /etc/apache2/sites-available/default.conf
 
 # Map port 80 et ssl apache2
 EXPOSE 22 80 443
