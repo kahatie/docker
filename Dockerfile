@@ -2,7 +2,7 @@ FROM kahatie/debian:jessie
 MAINTAINER kahatie <kahatie@gmail.com>
 
 # Volume mysql
-VOLUME ["/var/lib/mysql"]
+# VOLUME ["/var/lib/mysql"]
 # Volume home
 VOLUME ["/home/"]
 
@@ -27,7 +27,7 @@ RUN apt-get update && apt-get install -y\
  && rm -rf /var/lib/apt/lists/* \
  && a2enmod dav_svn \
  && a2dissite 000-default.conf \
- && a2ensite default.conf \
+ # && a2ensite default.conf \
  && service apache2 reload
 
 # Map port 80 et ssl apache2
