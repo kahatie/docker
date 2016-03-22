@@ -28,7 +28,6 @@ RUN apt-get update && apt-get install -y\
  && a2enmod dav_svn \
  && a2dissite 000-default.conf \
  # && a2ensite default.conf \
- && service apache2 reload
 
 # Map port 80 et ssl apache2
 EXPOSE 22 80 443
