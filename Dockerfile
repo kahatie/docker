@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y\
  libapache2-svn\ 
  && apt-get clean\
  && rm -rf /var/lib/apt/lists/*\
+ && mkdir -p /home/mysql\
  && mv /var/lib/mysql /home/mysql\
  && ln -s /home/mysql /var/lib/mysql\
  && chown -h mysql:mysql /home/mysql
