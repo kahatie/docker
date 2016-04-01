@@ -19,7 +19,8 @@ RUN apt-get update && apt-get install -y\
  && mkdir -p /home/mysql\
  && mv /var/lib/mysql /home/mysql\
  && ln -s /home/mysql /var/lib/mysql\
- && chown -h mysql:mysql /home/mysql
+ && chown -h mysql:mysql /home/mysql\
+ && mysql_install_db –-user=mysql –ldata=/var/lib/mysql
 
 # Copie le fichier de config de supervisord
 COPY supervisord.conf /etc/supervisor/conf.d/debian-lamp.conf
