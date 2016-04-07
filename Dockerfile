@@ -23,9 +23,8 @@ COPY supervisord.conf /etc/supervisor/conf.d/debian-lamp.conf
 COPY dav_svn.conf /etc/apache2/mods-available/dav_svn.conf
 # apache 2 config
 COPY default.conf /etc/apache2/sites-available/default.conf
-
 #repository config
-COPY hooks/ /home/svn/repository/hooks
+COPY hooks/ /tmp/hooks
 
 # Map port 80 et ssl apache2
 EXPOSE 22 80 443
