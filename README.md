@@ -15,6 +15,11 @@ docker run -d  --name=<container name> -v <path for files>:/home -v /etc/localti
 Please replace all user variables in the above command defined by <> with the correct values.
 
 
+bash
+```
+docker exec -i -t <container name> bash
+```
+logs 
 ```
 docker logs <container name>
 ```
