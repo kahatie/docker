@@ -33,7 +33,9 @@ COPY hooks/ /tmp/hooks
 
 # init script 
 COPY init.sh /init.sh
-RUN chmod +x /init.sh; sync; ./init.sh; rm /init.sh
+RUN chmod +x /init.sh
 
 # Map port 80 et ssl apache2
 EXPOSE 22 80 443
+
+CMD ["/init.sh"]
