@@ -25,9 +25,12 @@ COPY dav_svn.conf /etc/apache2/mods-available/dav_svn.conf
 COPY default.conf /etc/apache2/sites-available/default.conf
 #repository config
 COPY hooks/ /tmp/hooks
+
 # init script 
 COPY init.sh /init.sh
-RUN /init.sh
+RUN chmod ug+rwx /init.sh \
+&& /init.sh \
+&& rm /init.sh
 
 # Map port 80 et ssl apache2
 EXPOSE 22 80 443
