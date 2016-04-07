@@ -15,11 +15,7 @@ RUN apt-get update && apt-get install -y\
  subversion\ 
  libapache2-svn\ 
  && apt-get clean\
- && rm -rf /var/lib/apt/lists/*\
- && mkdir -p /home/mysql\
- && mv /var/lib/mysql /home/mysql\
- && ln -s /home/mysql /var/lib/mysql\
- && chown -h mysql:mysql /home/mysql
+ && rm -rf /var/lib/apt/lists/*
 
 # Copie le fichier de config de supervisord
 COPY supervisord.conf /etc/supervisor/conf.d/debian-lamp.conf
@@ -27,14 +23,6 @@ COPY supervisord.conf /etc/supervisor/conf.d/debian-lamp.conf
 COPY dav_svn.conf /etc/apache2/mods-available/dav_svn.conf
 # apache 2 config
 COPY default.conf /etc/apache2/sites-available/default.conf
-
-RUN  a2enmod dav_svn \
- && a2dissite 000-default.conf \
- && a2ensite default.conf \
- && mkdir /home/svn/\
- && svnadmin create /home/svn/repository/ \
- && svn checkout --username system file:///home/svn/repository/ \
- && mysql_install_db –-user=mysql –ldata=/var/lib/mysql
 
 #repository config
 COPY hooks/ /home/svn/repository/hooks
