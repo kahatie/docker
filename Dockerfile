@@ -1,6 +1,11 @@
 FROM kahatie/debian:jessie
 MAINTAINER kahatie <kahatie@gmail.com>
 
+# Config de Apache
+ENV APACHE_RUN_USER www-data
+ENV APACHE_RUN_GROUP www-data
+ENV APACHE_LOG_DIR /home/log/apache2
+
 # Volume home
 VOLUME ["/home/"]
 
@@ -32,8 +37,3 @@ RUN chmod +x /init.sh; sync; ./init.sh; rm /init.sh
 
 # Map port 80 et ssl apache2
 EXPOSE 22 80 443
-
-# Config de Apache
-ENV APACHE_RUN_USER www-data
-ENV APACHE_RUN_GROUP www-data
-ENV APACHE_LOG_DIR /home/log/apache2
