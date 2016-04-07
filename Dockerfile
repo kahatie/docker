@@ -25,6 +25,8 @@ COPY dav_svn.conf /etc/apache2/mods-available/dav_svn.conf
 COPY default.conf /etc/apache2/sites-available/default.conf
 #repository config
 COPY hooks/ /tmp/hooks
+# entrypoint
+COPY entrypoint.sh /entrypoint.sh
 
 # Map port 80 et ssl apache2
 EXPOSE 22 80 443
