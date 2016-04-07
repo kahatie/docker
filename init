@@ -1,6 +1,6 @@
 #!/bin/bash
 initToken="/home/.iniToken"
-svnRep="/home/svn/repository/"
+svnRep="/home/svn/repository"
 
 #deplace workspace mysql dans /home 
 mkdir -p /home/mysql
@@ -19,7 +19,8 @@ a2ensite default.conf
 
 # creation du depot si il n'existe pas 
 if !([ -f "$svnRep" ]) then
-  mkdir "$svnRep"
-  svnadmin create /home/svn/repository/
+  mkdir -p "$svnRep"
+  svnadmin create "$svnRep"
+  mv /tmp/hooks "$svnRep/hooks"
   svn checkout --username system file:///home/svn/repository/
 fi
