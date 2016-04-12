@@ -21,6 +21,7 @@ if [ ! -d "/home/www" ]; then
   mkdir -p /home/www
 fi
 chown -h www-data:www-data /home/www
+chmod -R 770 /home/www
 
 
 # creation du depot si il n'existe pas 
