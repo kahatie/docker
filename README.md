@@ -19,6 +19,10 @@ bash
 ```
 docker exec -i -t <container name> bash
 ```
+add svn user 
+```
+htpasswd -cs /home/svn/.dav_svn.passwd user1
+```
 logs 
 ```
 docker logs <container name>
