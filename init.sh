@@ -22,6 +22,11 @@ if [ ! -d "/home/www" ]; then
 fi
 chown -h www-data:www-data /home/www
 chmod -R 770 /home/www
+#apache log 
+if [ ! -d "$APACHE_LOG_DIR" ]; then
+  mkdir -p "$APACHE_LOG_DIR"
+fi
+
 
 
 # creation du depot si il n'existe pas 
