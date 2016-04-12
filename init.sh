@@ -17,6 +17,11 @@ fi
 a2enmod dav_svn
 a2dissite 000-default.conf
 a2ensite default.conf
+if [ ! -d "/home/www" ]; then
+  mkdir -p /home/www
+fi
+chown -h www-data:www-data /home/www
+
 
 # creation du depot si il n'existe pas 
 if !([ -f /home/svn/repository ]) then
