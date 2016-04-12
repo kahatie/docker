@@ -26,6 +26,7 @@ RUN apt-get update && apt-get install -y\
 COPY supervisord.conf /etc/supervisor/conf.d/debian-lamp.conf
 # Copie les fichiers de config de svn
 COPY dav_svn.conf /etc/apache2/mods-available/dav_svn.conf
+COPY dav_svn.authz /home/svn/dav_svn.authz
 # apache 2 config
 COPY default.conf /etc/apache2/sites-available/default.conf
 #repository config
