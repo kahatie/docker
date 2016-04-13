@@ -1,6 +1,8 @@
 FROM kahatie/debian:jessie
 MAINTAINER kahatie <kahatie@gmail.com>
 
+ENV SVN_PROD branch/prod
+
 # Volume home
 VOLUME ["/home/"]
 
