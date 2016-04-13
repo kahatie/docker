@@ -13,28 +13,19 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
   mysql_install_db –-user=mysql –ldata=/var/lib/mysql
 fi
 
-# config mod apache
-a2enmod dav_svn
-a2dissite 000-default.conf
-a2ensite default.conf
-if [ ! -d "/home/www" ]; then
-  mkdir -p /home/www
-fi
-chown -h www-data:www-data /home/www
-chmod -R 770 /home/www
-#apache log 
-if [ ! -d "$APACHE_LOG_DIR" ]; then
-  mkdir -p "$APACHE_LOG_DIR"
-fi
-
-
-
 # creation du depot si il n'existe pas 
 if !([ -f /home/svn/repository ]) then
   mkdir -p /home/svn
   svnadmin create /home/svn/repository
   mv /tmp/hooks /home/svn/repository/hooks
-  svn checkout --username system file:///home/svn/repository/
 fi
+
+# config mod apache
+a2enmod dav_svn
+if [ ! -d "/home/www" ]; then
+  svn checkout --username system file:///home/svn/repository/ /home/www
+fi
+chown -h www-data:www-data /home/www
+chmod -R 770 /home/www
 
 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf -n
