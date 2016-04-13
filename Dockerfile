@@ -25,6 +25,7 @@ COPY supervisord.conf /etc/supervisor/conf.d/debian-lamp.conf
 COPY dav_svn.conf /etc/apache2/mods-available/dav_svn.conf
 COPY dav_svn.authz /home/svn/dav_svn.authz
 # apache 2 config
+COPY apache2.conf /etc/apache2/apache2.conf
 COPY default.conf /etc/apache2/sites-available/000-default.conf
 #repository config
 COPY hooks/ /tmp/hooks
