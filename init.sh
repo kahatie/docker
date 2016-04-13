@@ -23,7 +23,7 @@ fi
 # config mod apache
 a2enmod dav_svn
 if [ ! -d "/home/www" ]; then
-  svn checkout --username system file:///home/svn/repository/ /home/www
+  svn checkout --username system file:///home/svn/repository/$SVN_PROD /home/www
 fi
 chown -h www-data:www-data /home/www
 chmod -R 770 /home/www
