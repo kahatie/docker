@@ -1,4 +1,4 @@
-FROM kahatie/debian:wheezy
+FROM kahatie/debian:jessie
 MAINTAINER kahatie <kahatie@gmail.com>
 
 VOLUME ["/var/lib/mediatomb"]
