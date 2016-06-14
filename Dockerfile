@@ -6,7 +6,7 @@ VOLUME ["/var/lib/mediatomb"]
 # Mise a jour / installation des packet
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get install -y\
- mediatomb-daemon
+ mediatomb-daemon\
  && apt-get clean\
  && rm -rf /var/lib/apt/lists/*
 
