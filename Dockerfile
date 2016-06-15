@@ -1,7 +1,7 @@
 FROM kahatie/debian:wheezy
 MAINTAINER kahatie <kahatie@gmail.com>
 
-VOLUME ["/home/mediatomb/.mediatomb"]
+VOLUME ["/home/mediatomb/"]
 
 # Mise a jour / installation des packet
 ENV DEBIAN_FRONTEND noninteractive
