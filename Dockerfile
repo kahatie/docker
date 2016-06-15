@@ -19,8 +19,9 @@ RUN chown -R mediatomb:mediatomb /home/mediatomb
 USER mediatomb
 
 # Map port
-EXPOSE 50500
-EXPOSE 1900
-EXPOSE 41570
+EXPOSE 50500/tcp
+EXPOSE 50500/udp
+EXPOSE 1900/udp
+EXPOSE 41570/tcp
 
 ENTRYPOINT /usr/bin/mediatomb -m /home/mediatomb/ -p 50500
