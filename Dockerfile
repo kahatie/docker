@@ -15,4 +15,4 @@ RUN apt-get update && apt-get install -y\
 
 # Map port 
 EXPOSE 49152/tcp 1900/udp 
-ENTRYPOINT /usr/bin/mediatomb -c /var/lib/mediatomb/config.xml -a /Media
+ENTRYPOINT /usr/bin/mediatomb -c /var/lib/mediatomb/config.xml
