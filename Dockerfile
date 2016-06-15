@@ -1,7 +1,7 @@
 FROM kahatie/debian:wheezy
 MAINTAINER kahatie <kahatie@gmail.com>
 
-VOLUME ["/var/lib/mediatomb"]
+VOLUME ["/.mediatomb"]
 
 # Mise a jour / installation des packet
 ENV DEBIAN_FRONTEND noninteractive
@@ -13,6 +13,14 @@ RUN apt-get update && apt-get install -y\
 # ADD config.xml /etc/mediatomb/config.xml
 # ADD config.xml /var/lib/mediatomb/config.xml
 
-# Map port 
-EXPOSE 49152/tcp 1900/udp 
-ENTRYPOINT /usr/bin/mediatomb -m /var/lib/mediatomb/
+# RUN mkdir /.mediatomb
+RUN chown -R mediatomb:mediatomb /.mediatomb
+
+USER mediatomb
+
+# Map port
+EXPOSE 50500
+EXPOSE 1900
+EXPOSE 41570
+
+ENTRYPOINT /usr/bin/mediatomb -m /var/lib/mediatomb/ -p 50500
