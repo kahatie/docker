@@ -10,6 +10,7 @@ ENV TERM=xterm \
 #    ionic start myApp sidemenu && \
 
 RUN npm install -g cordova@"$CORDOVA_VERSION" ionic@"$IONIC_VERSION"  && \
+    npm cache clear && \
     ionic start myApp sidemenu
 
 WORKDIR myApp
