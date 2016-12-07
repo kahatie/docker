@@ -6,10 +6,10 @@ ARG BUILD_DATE
 ARG VCS_REF
 ARG VERSION
 LABEL org.label-schema.build-date=$BUILD_DATE \
-      org.label-schema.name="docker-ionic" \
+      org.label-schema.name="ionic" \
       org.label-schema.description="ionic framework" \
       org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-url="e.g. https://github.com/microscaling/microscaling" \
+      org.label-schema.vcs-url="https://github.com/kahatie/docker-ionic" \
       org.label-schema.version=$VERSION \
       org.label-schema.schema-version="1.0"
           
