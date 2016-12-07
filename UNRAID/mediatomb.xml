@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Containers>
+  <Beta>False</Beta>
+<Category>Network:upnp</Category>
+  <Name>kahatie-mediatomb</Name>
+  <GitHub>https://github.com/kahatie/mediatomb</GitHub>
+  <Repository>kahatie/mediatomb</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish>
+      <Port>
+        <HostPort>50500</HostPort>
+        <ContainerPort>50500</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>50500</HostPort>
+        <ContainerPort>50500</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>1900</HostPort>
+        <ContainerPort>1900</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>41570</HostPort>
+        <ContainerPort>41570</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Environment>
+    <Variable>
+      <Name></Name>
+      <Value></Value>
+    </Variable>
+  </Environment>   
+  <Data>
+    <Volume>
+      <HostDir>path to config</HostDir>
+      <ContainerDir>/home/mediatomb/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <WebUI>http://[IP]:[PORT:50500]/</WebUI>
+  <Banner>https://raw.githubusercontent.com/kahatie/docker-templates/master/kahatie/mediatomb.png</Banner>
+  <Icon>https://raw.githubusercontent.com/kahatie/docker-templates/master/kahatie/mediatomb.png</Icon>
+</Containers>

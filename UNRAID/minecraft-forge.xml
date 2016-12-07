@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Containers>
+  <Beta>False</Beta>
+<Category>Network:Voip</Category>
+  <Name>kahatie-minecraft-server</Name>
+  <Description>
+    minecraft server forge dynmap
+  </Description>
+  <Overview>
+    minecraft server forge dynmap
+  </Overview>
+  <Support>http://lime-technology.com/forum/index.php?topic=38055.0</Support>
+  <Registry>https://registry.hub.docker.com/u/kahatie/</Registry>
+  <GitHub>https://github.com/kahatie/minecraft-forge</GitHub>
+  <Repository>kahatie/minecraft-forge</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish>
+    </Publish>
+  </Networking>
+  <Environment>
+    <Variable>
+      <Name></Name>
+      <Value></Value>
+    </Variable>
+  </Environment>    
+  <Data>
+    <Volume>
+      <HostDir>path to merge</HostDir>
+      <ContainerDir>/minecraft/merge</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>path to world</HostDir>
+      <ContainerDir>/minecraft/world</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>path to logs</HostDir>
+      <ContainerDir>/minecraft/logs</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>path to dynmap</HostDir>
+      <ContainerDir>/minecraft/dynmap</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <WebUI></WebUI>
+</Containers>
