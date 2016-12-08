@@ -28,6 +28,16 @@ my docker file repository
 minimal docker for ionic framework 
 
 
+### Lamp
+[![Docker Hub](https://img.shields.io/badge/docker-kahatie%2Flamp-008bb8.svg)](https://registry.hub.docker.com/u/kahatie/lamp/)
+[![](https://images.microbadger.com/badges/image/kahatie/lamp.svg)](https://microbadger.com/images/kahatie/lamp "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/kahatie/lamp.svg)](https://microbadger.com/images/kahatie/lamp "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/commit/kahatie/lamp.svg)](https://microbadger.com/images/kahatie/lamp "Get your own commit badge on microbadger.com")
+
+[Dockerfile](https://github.com/kahatie/docker/blob/master/lamp/Dockerfile)
+
+simple server lamp (linux apache2 mysql php) et svn 
+
 ## MediaTomb
 [![Docker Hub](https://img.shields.io/badge/docker-kahatie%2Fmediatomb-008bb8.svg)](https://registry.hub.docker.com/u/kahatie/mediatomb/)
 [![](https://images.microbadger.com/badges/image/kahatie/mediatomb.svg)](https://microbadger.com/images/kahatie/mediatomb "Get your own image badge on microbadger.com")
