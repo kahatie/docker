@@ -1,6 +1,18 @@
 FROM kahatie/debian:jessie
 MAINTAINER kahatie <kahatie@gmail.com>
 
+# Build-time metadata as defined at http://label-schema.org
+ARG BUILD_DATE
+ARG VCS_REF
+ARG VERSION
+LABEL org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.name="lamp" \
+      org.label-schema.description="lamp server" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-url="https://github.com/kahatie/docker" \
+      org.label-schema.version=$VERSION \
+      org.label-schema.schema-version="1.0"
+	  
 ENV SVN_PROD ""
 
 # Volume home
@@ -28,7 +40,7 @@ COPY dav_svn.authz /home/svn/dav_svn.authz
 COPY apache2.conf /etc/apache2/apache2.conf
 COPY default.conf /etc/apache2/sites-available/000-default.conf
 #repository config
-COPY hooks/ /tmp/hooks
+COPY post-commit /tmp/hooks/post-commit
 
 # init script 
 COPY init.sh /init.sh
