@@ -1,0 +1,9 @@
+[groups]
+admin = kahatie
+banned = nobody
+
+# Default access rule for ALL repositories
+# admins can write, banned is excluded.
+[/]
+@admin = rw
+@banned = 
