@@ -9,7 +9,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.name="ionic" \
       org.label-schema.description="ionic framework" \
       org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-url="https://github.com/kahatie/docker-ionic" \
+      org.label-schema.vcs-url="https://github.com/kahatie/docker" \
       org.label-schema.version=$VERSION \
       org.label-schema.schema-version="1.0"
           
