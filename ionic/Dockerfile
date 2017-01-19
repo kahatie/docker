@@ -1,4 +1,4 @@
-FROM node:7-alpine
+FROM kahatie/debian:8
 MAINTAINER kahatie <kahatie@gmail.com>
 
 # Build-time metadata as defined at http://label-schema.org
@@ -14,15 +14,32 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.schema-version="1.0"
           
 ENV TERM=xterm \
-    IONIC_VERSION=2.1.14 \
-    CORDOVA_VERSION=6.4.0
+	WORKDIR=/workspace \
+	PROJET=/workspace/myApp \
+	IONIC_SERVE_PORT=8100 \
+	IONIC_LIVERELOAD_PORT=35729 
+#    IONIC_VERSION=2.1.14 \
+#    CORDOVA_VERSION=6.4.0
 
-RUN npm install -g cordova@"$CORDOVA_VERSION" ionic@"$IONIC_VERSION"  && \
-    npm cache clear && \
-    ionic start myApp sidemenu
-    
-WORKDIR myApp
+VOLUME ${WORKDIR}
 
-# Expose port: web (8100), livereload (35729) EXPOSE 8100 35729
-EXPOSE 8100 35729
-CMD ["ionic", "serve", "8100", "35729"]
+RUN apt-get update && \
+	apt-get install -y\
+	curl && \
+	curl -sL https://deb.nodesource.com/setup_7.x | bash - && \
+	apt-get install -y nodejs && \
+	ln -s /usr/local/bin/node /usr/local/bin/nodejs && \
+	npm update -g && \
+	npm install -g cordova ionic && \
+	npm cache clear && \
+	apt-get clean && \ 
+	apt-get autoclean && \
+	cordova telemetry off
+
+# init script 
+COPY init.sh /init.sh
+
+# Expose port: web (8100), livereload (35729)
+EXPOSE ${IONIC_SERVE_PORT} ${IONIC_LIVERELOAD_PORT}
+
+CMD ["/init.sh"]

@@ -10,8 +10,5 @@ ionic framework
 
 ### Usage
 ```
-docker run -ti \
--v /path/to/your/ionic-project/:/myApp:rw \
--p 8100:8100 -p 35729:35729 \
-kahatie/ionic
+docker run -ti -v /path/to/your/ionic-project/:/workspace:rw -p 8100:8100 -p 35729:35729 kahatie/ionic
 ```
