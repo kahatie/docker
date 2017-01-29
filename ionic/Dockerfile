@@ -23,6 +23,9 @@ ENV TERM=xterm \
 
 VOLUME ${WORKDIR}
 
+# init script 
+COPY init.sh /init.sh
+
 RUN apt-get update && \
 	apt-get install -y\
 	curl && \
@@ -34,10 +37,8 @@ RUN apt-get update && \
 	npm cache clear && \
 	apt-get clean && \ 
 	apt-get autoclean && \
+	chmod a+x /init.sh && \
 	cordova telemetry off
-
-# init script 
-COPY init.sh /init.sh
 
 # Expose port: web (8100), livereload (35729)
 EXPOSE ${IONIC_SERVE_PORT} ${IONIC_LIVERELOAD_PORT}
