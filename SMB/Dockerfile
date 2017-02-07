@@ -13,8 +13,10 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.version=$VERSION \
       org.label-schema.schema-version="1.0"
 			
-RUN apk add --update samba
-
+RUN apk add --update --no-cache samba-server samba-common-tools
+		
+COPY smb.conf /etc/samba/smb.conf
+      
 EXPOSE 137/udp 138/udp 139 445
 
 CMD ["sh"]
