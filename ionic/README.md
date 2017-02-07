@@ -10,5 +10,11 @@ ionic framework
 
 ### Usage
 ```
+docker run -ti -p 8100:8100 -p 35729:35729 kahatie/ionic
+```
+
+or with volume
+```
 docker run -ti -v /path/to/your/ionic-project/:/workspace:rw -p 8100:8100 -p 35729:35729 kahatie/ionic
 ```
+write in volume not proc ionic serv !!! 
