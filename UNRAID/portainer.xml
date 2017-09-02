@@ -38,6 +38,6 @@
     </Volume>
   </Data>
   <WebUI>http://[IP]:[PORT:9000]/</WebUI>
-  <Banner>https://raw.githubusercontent.com/kahatie/docker-templates/master/kahatie/dockerui.png</Banner>
-  <Icon>https://raw.githubusercontent.com/kahatie/docker-templates/master/kahatie/dockerui.png</Icon>
+  <Banner>https://raw.githubusercontent.com/kahatie/docker-templates/master/kahatie/portainer.png</Banner>
+  <Icon>https://raw.githubusercontent.com/kahatie/docker-templates/master/kahatie/portainer.png</Icon>
 </Containers>
