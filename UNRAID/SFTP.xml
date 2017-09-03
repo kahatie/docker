@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Containers>
+  <Beta>False</Beta>
+  <Category>tools</Category>
+  <Name>SFTP</Name>
+  <Description>
+	Simple SFTP server https://github.com/atmoz/sftp/tree/alpine-3.5
+  </Description>
+  <Overview>
+    Simple SFTP server 
+  </Overview>
+  <GitHub>https://github.com/atmoz/sftp/tree/alpine-3.5</GitHub>
+  <Repository>atmoz/sftp</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>2222</HostPort>
+        <ContainerPort>22</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Environment>
+    <Variable>
+      <Name></Name>
+      <Value></Value>
+    </Variable>
+  </Environment>    
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user</HostDir>
+      <ContainerDir>/home/user</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+	<Volume>
+      <HostDir>path to users.conf</HostDir>
+      <ContainerDir>/etc/sftp/users.conf</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+  </Data>
+  <Banner>https://raw.githubusercontent.com/kahatie/docker-templates/master/kahatie/dockerui.png</Banner>
+  <Icon>https://raw.githubusercontent.com/kahatie/docker-templates/master/kahatie/dockerui.png</Icon>
+</Containers>
