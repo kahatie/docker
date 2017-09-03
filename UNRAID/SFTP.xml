@@ -10,7 +10,7 @@
     Simple SFTP server 
   </Overview>
   <GitHub>https://github.com/atmoz/sftp/tree/alpine-3.5</GitHub>
-  <Repository>atmoz/sftp</Repository>
+  <Repository>atmoz/sftp:alpine</Repository>
   <BindTime>true</BindTime>
   <Privileged>false</Privileged>
   <Networking>
