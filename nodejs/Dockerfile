@@ -19,9 +19,6 @@ ENV TERM=xterm \
   
 VOLUME ${WORKDIR}
 
-# init script 
-COPY init.sh /init.sh
-
 RUN apt-get update && \
 	apt-get install -y\
 	curl && \
