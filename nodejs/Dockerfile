@@ -15,27 +15,26 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.schema-version="1.0"
           
 ENV TERM=xterm \
-	WORKDIR=/nodejs \
+	WORKDIR=/nodejs 
   
-VOLUME ${WORKDIR}
+VOLUME /home/nodejs
 
 RUN apt-get update && \
 	apt-get install -y\
-	curl && \
-	# install nodejs
+	curl debconf-utils && \
 	curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
-	# install java pour les test unitaire 
-	apt-get install -y nodejs software-properties-common && \
+	apt-get install -y nodejs software-properties-common openssh-server && \
 	add-apt-repository "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" && \
 	apt-get update && \
-	apt-get install oracle-java8-installer && \
-	# install cordova et vue 
+	echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections && \
+	echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 seen true" | debconf-set-selections && \
+	apt-get install -y oracle-java8-installer && \
 	npm update -g && \
 	npm install --global cordova vue-cli && \
-	npm cache clear && \
+	npm cache clear --force && \
 	apt-get clean && \ 
 	apt-get autoclean && \
 	cordova telemetry off
 
 # Expose port: webpack dev server
-EXPOSE 8080
+EXPOSE 22 8080
