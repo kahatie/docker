@@ -25,17 +25,20 @@ COPY init.sh /init.sh
 RUN apt-get update && \
 	apt-get install -y\
 	curl && \
+	# install nodejs
 	curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
-	apt-get install -y nodejs && \
+	# install java pour les test unitaire 
+	apt-get install -y nodejs software-properties-common && \
+	add-apt-repository "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" && \
+	apt-get update && \
+	apt-get install oracle-java8-installer && \
+	# install cordova et vue 
 	npm update -g && \
-	
+	npm install --global cordova vue-cli && \
 	npm cache clear && \
 	apt-get clean && \ 
 	apt-get autoclean && \
-	chmod a+x /init.sh && \
 	cordova telemetry off
 
-# Expose port: web (8100), livereload (35729)
-EXPOSE ${IONIC_SERVE_PORT} ${IONIC_LIVERELOAD_PORT}
-
-CMD ["/init.sh"]
+# Expose port: webpack dev server
+EXPOSE 8080
