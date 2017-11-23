@@ -23,7 +23,7 @@ RUN apt-get update && \
 	apt-get install -y\
 	curl debconf-utils && \
 	curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
-	apt-get install -y nodejs software-properties-common openssh-server && \
+	apt-get install -y nodejs software-properties-common && \
 	add-apt-repository "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" && \
 	apt-get update && \
 	echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections && \
@@ -37,4 +37,4 @@ RUN apt-get update && \
 	cordova telemetry off
 
 # Expose port: webpack dev server
-EXPOSE 22 8080
+EXPOSE 8080
