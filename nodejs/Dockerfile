@@ -15,7 +15,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.schema-version="1.0"
           
 ENV TERM=xterm \
-	WORKDIR=/nodejs 
+	WORKDIR=/home/nodejs 
   
 VOLUME /home/nodejs
 
