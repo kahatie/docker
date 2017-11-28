@@ -15,7 +15,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.schema-version="1.0"
           
 ENV 	TERM=xterm \
-	WORKDIR=/home/nodejs \
+	HOME=/home/nodejs \
 	UID=1000
   
 VOLUME /home/nodejs
@@ -40,7 +40,8 @@ RUN apt-get update && \
 	cordova telemetry off
 
 USER kahatie
-ENV HOME /home/nodejs
+
+WORKDIR $HOME
 
 # Expose port: webpack dev server
 EXPOSE 8080
