@@ -14,10 +14,14 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.version=$VERSION \
       org.label-schema.schema-version="1.0"
           
-ENV TERM=xterm \
-	WORKDIR=/home/nodejs 
+ENV 	TERM=xterm \
+	WORKDIR=/home/nodejs \
+	UID=1000 \
+	GUID=100 
   
 VOLUME /home/nodejs
+
+RUN groupadd -g $GUID -r users && useradd --no-log-init -r -u $UID -g users kahatie
 
 RUN apt-get update && \
 	apt-get install -y\
@@ -35,6 +39,9 @@ RUN apt-get update && \
 	apt-get clean && \ 
 	apt-get autoclean && \
 	cordova telemetry off
+
+USER kahatie
+ENV HOME /home/nodejs
 
 # Expose port: webpack dev server
 EXPOSE 8080
