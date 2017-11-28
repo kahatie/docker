@@ -16,12 +16,11 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
           
 ENV 	TERM=xterm \
 	WORKDIR=/home/nodejs \
-	UID=1000 \
-	GUID=100 
+	UID=1000
   
 VOLUME /home/nodejs
 
-RUN groupadd -g $GUID -r users && useradd -r -u $UID -g users kahatie
+RUN useradd -r -u $UID -g users kahatie
 
 RUN apt-get update && \
 	apt-get install -y\
