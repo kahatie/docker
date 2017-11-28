@@ -21,7 +21,7 @@ ENV 	TERM=xterm \
   
 VOLUME /home/nodejs
 
-RUN groupadd -g $GUID -r users && useradd --no-log-init -r -u $UID -g users kahatie
+RUN groupadd -g $GUID -r users && useradd -r -u $UID -g users kahatie
 
 RUN apt-get update && \
 	apt-get install -y\
