@@ -39,12 +39,13 @@ COPY dav_svn.authz /home/svn/dav_svn.authz
 # apache 2 config
 COPY apache2.conf /etc/apache2/apache2.conf
 COPY default.conf /etc/apache2/sites-available/000-default.conf
+COPY index.php /home/www/index.php
 #repository config
 COPY post-commit /tmp/hooks/post-commit
 
 # init script 
 COPY init.sh /init.sh
-RUN chmod +x /init.sh
+RUN  chmod +x /init.sh
 
 # Map port 80 et ssl apache2
 EXPOSE 22 80 443

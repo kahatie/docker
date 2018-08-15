@@ -6,12 +6,8 @@ if [ ! -d "/home/mysql" ]; then
   mv /var/lib/mysql /home/mysql
   ln -s /home/mysql /var/lib/mysql
   chown -h mysql:mysql /home/mysql
-fi
-
-# initialise la base de donnée mysql
-# if [ ! -d "/var/lib/mysql/mysql" ]; then
   mysql_install_db --user=mysql -ldata=/var/lib/mysql
-# fi
+fi
 
 # creation du depot si il n'existe pas 
 if !([ -f /home/svn/repository ]) then
