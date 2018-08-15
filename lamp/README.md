@@ -27,6 +27,10 @@ get bash
 ```
 docker exec -i -t <container name> bash
 ```
+set mysql password
+```
+mysqladmin -u root password '<mon mot de passe>'
+```
 add svn user 
 ```
 htpasswd -cs /home/svn/dav_svn.passwd user1
@@ -34,4 +38,9 @@ htpasswd -cs /home/svn/dav_svn.passwd user1
 logs 
 ```
 docker logs <container name>
+```
+
+phpmyadmin
+```
+http://<ip:port>/phpmyadmin
 ```
