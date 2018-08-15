@@ -9,9 +9,9 @@ if [ ! -d "/home/mysql" ]; then
 fi
 
 # initialise la base de donnée mysql
-if [ ! -d "/var/lib/mysql/mysql" ]; then
-  mysql_install_db –-user=mysql –ldata=/var/lib/mysql
-fi
+# if [ ! -d "/var/lib/mysql/mysql" ]; then
+  mysql_install_db --user=mysql -ldata=/var/lib/mysql
+# fi
 
 # creation du depot si il n'existe pas 
 if !([ -f /home/svn/repository ]) then
@@ -21,11 +21,14 @@ if !([ -f /home/svn/repository ]) then
 fi
 
 # config mod apache
+ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-available/phpmyadmin.conf
+a2enconf phpmyadmin.conf
 a2enmod dav_svn
 if [ ! -d "/home/www" ]; then
   svn checkout --username system file:///home/svn/repository/$SVN_PROD /home/www
 fi
 chown -R www-data:www-data /home/www
 chmod -R 770 /home/www
+service apache2 reload
 
 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf -n
